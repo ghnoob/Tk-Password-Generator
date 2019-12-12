@@ -6,12 +6,6 @@
 
  This is my first project. Made it on windows. I didn't try it on Linux (yet).
 
-## Requeriments
- Make sure you have **Python** installed in your system. If not, download and install it from the [official site](https://www.python.org/downloads/).
-
-## Running the program
-Just download the file `main.pyw` and open it.
-
 ## License
  Released under public domain. See `LICENSE.MD` for details
 
