@@ -13,6 +13,7 @@ import tkinter.filedialog
 import tkinter.ttk as ttk
 import secrets
 import string
+from i18n import get_lang
 
 class MainApplication:
     """Contains all widgets, their configs and their functionalities.
@@ -22,6 +23,7 @@ class MainApplication:
     """
     
     def __init__(self, master):
+        global _
         """Class initializator.
         
         Creates and configures the widgets.
@@ -58,6 +60,7 @@ class MainApplication:
         self.password = tk.StringVar()
         
         # calling methods
+        _ = get_lang() # set language
         self.configure_widgets()
         self.create_widgets()
     
@@ -106,24 +109,24 @@ class MainApplication:
         # widgets
         
         # title label
-        ttk.Label(checkbox_frame, text="The password must contain:",
+        ttk.Label(checkbox_frame, text=_("The password must contain:"),
                   font=("Consolas",12)).pack(anchor="w")
 
         # checkbox
         ttk.Checkbutton(
-            checkbox_frame,text="Lowercase letters",
+            checkbox_frame,text=_("Lowercase letters"),
             variable=self.include_low, command=self.check_generate
             ).pack(anchor="w")
         ttk.Checkbutton(
-            checkbox_frame, text="Uppercase letters",
+            checkbox_frame, text=_("Uppercase letters"),
             variable=self.include_upp, command=self.check_generate
             ).pack(anchor="w")
         ttk.Checkbutton(
-            checkbox_frame, text="Digits",
+            checkbox_frame, text=_("Digits"),
             variable=self.include_num, command=self.check_generate
             ).pack(anchor="w")
         ttk.Checkbutton(
-            checkbox_frame, text="Symbols",
+            checkbox_frame, text=_("Symbols"),
             variable=self.include_sym, command=self.check_generate
             ).pack(anchor="w")
 
@@ -146,7 +149,7 @@ class MainApplication:
         lenght_frame.pack(anchor="w")
 
         # title label
-        ttk.Label(lenght_frame, text="Password lenght:",
+        ttk.Label(lenght_frame, text=_("Password lenght:"),
                   font=("Consolas",12)).grid(row=0, column=0)
 
         # spinbox to select password lenght
@@ -174,7 +177,7 @@ class MainApplication:
 
         # generate password button
         self.genbutton = ttk.Button(
-            lower_frame, text="Generate",
+            lower_frame, text=_("Generate"),
             command=self.generate_password)
         self.genbutton.pack()
         
@@ -188,14 +191,14 @@ class MainApplication:
 
         # copy to clipboard button
         self.copybutton = ttk.Button(
-            lower_frame, text="Copy to clipboard",
+            lower_frame, text=_("Copy to clipboard"),
             state=["disabled"], command=self.copy_to_clipboard
             )
         self.copybutton.pack(side="left")
         
         # save as .txt button
         self.savebutton = ttk.Button(
-            lower_frame, text="Save as .txt",
+            lower_frame, text=_("Save as .txt"),
             state=["disabled"], command=self.save_password)
         self.savebutton.pack(side="left")
          
