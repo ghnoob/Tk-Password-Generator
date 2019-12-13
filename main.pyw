@@ -10,7 +10,7 @@ import tkinter.filedialog
 import tkinter.ttk as ttk
 import secrets
 import string
-from i18n import get_lang
+from i18n import set_lang
 
 class MainApplication:
     """Contains all widgets, their configs and their functionalities.
@@ -57,7 +57,7 @@ class MainApplication:
         self.password = tk.StringVar()
         
         # calling methods
-        _ = get_lang() # set language
+        _ = set_lang() # set language
         self.configure_widgets()
         self.create_widgets()
     

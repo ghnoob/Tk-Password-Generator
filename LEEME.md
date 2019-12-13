@@ -10,10 +10,7 @@ La longitud de la contraseña es configurable, pudiendo tener entre 1 y 50 carac
 ## Soporte multilenguage
 La aplicación soporta tanto inglés (por defecto) como español.
 
-Para cambiar el lenguaje, edita el archivo `lang.txt` de la carpeta `locales`  
-+ Para configurar el lenguaje en inglés, escribe _en_ en el archivo.
-+ Para configurarlo en español, escribe _es_.  
-_**Nota:** por favor no borres el archivo `lang.txt` o escribas otra cosa para prevenir errores._
+Si el SO está configurado en español, la app utiliza los archivos de lenguaje de ese idioma. Si está configurado en otro idioma, utiliza los archivos del idioma inglés.
 
 ## Copyright
 Este programa ha sido liberado al dominio público. Lee `LICENSE.MD` para más detalles.

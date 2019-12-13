@@ -1,28 +1,24 @@
 """Internationalization support for the app."""
 
+import locale
 import gettext
 from io import open
 
-def get_lang():
-    """Sets the language of the app.
+def set_lang():
+    """Sets the language of the app based in the current locale.
     
-    Reads the lang.txt file in locales folder.
-    If the file says 'en' it sets the language to English.
-    If it says 'es' it sets the language to Spanish.
+    If the OS is in Spanish, the app uses the Spanish language files.
+    Else, it uses the English ones (default)
     """
-    file_ = open('./locales/lang.txt','r')
-    lang = file_.read()
-    file_.close()
-    print(lang)
-        
-    # english
-    if lang == 'en':
-        en = gettext.translation('base', localedir='locales', languages=['en'])
-        en.install()
-        return en.gettext
-        
     # spanish
-    elif lang == 'es':
+    loc = locale.getlocale()
+    if loc[0].startswith( ('es', 'Spanish') ):
         es = gettext.translation('base', localedir='locales', languages=['es'])
         es.install()
         return es.gettext
+        
+    # english
+    else:
+        en = gettext.translation('base', localedir='locales', languages=['en'])
+        en.install()
+        return en.gettext

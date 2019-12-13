@@ -10,10 +10,7 @@
 ## Multi-language support
 The app supports both English (default) and Spanish.  
 
-To change the language, edit `lang.txt` in `locales` folder.
-+ To set the app in English, write _en_ in the file.
-+ To set the app in Spanish, write _es_ in the file.
-_**Note:** do not delete the file or write anything else to prevent errors._
+If the OS language is Spanish, the app uses the Spanish language files. Else, it uses the English ones.
 
 ## License
  Released under public domain. See `LICENSE.MD` for details
