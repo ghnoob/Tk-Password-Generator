@@ -20,7 +20,6 @@ class MainApplication:
     """
     
     def __init__(self, master):
-        global _
         """Class initializator.
         
         Creates and configures the widgets.
@@ -45,6 +44,7 @@ class MainApplication:
             8 by default.  
             password (tkinter.StringVar): the generated password.
         """
+        global _
         # arguments
         self.master = master
 
