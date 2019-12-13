@@ -4,9 +4,6 @@ Generated passwords can have 8-50 characters, and be composed of
 uppercase letters, lowercase letters, digits, and symbols
 """
 __author__ = "Rodrigo Pietnechuk"
-__date__ = "9 December 2019"
-
-__version__ = "1.0"
 
 import tkinter as tk
 import tkinter.filedialog
