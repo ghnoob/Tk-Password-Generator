@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-12-12 15:35-0300\n"
+"POT-Creation-Date: 2019-12-14 17:06-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,38 +18,42 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: main.py\n"
 
-#: main.py:118
+#: main.py:109
 msgid "The password must contain:"
 msgstr ""
 
-#: main.py:123
+#: main.py:114
 msgid "Lowercase letters"
 msgstr ""
 
-#: main.py:127
+#: main.py:118
 msgid "Uppercase letters"
 msgstr ""
 
-#: main.py:131
+#: main.py:122
 msgid "Digits"
 msgstr ""
 
-#: main.py:135
+#: main.py:126
 msgid "Symbols"
 msgstr ""
 
-#: main.py:158
+#: main.py:149
 msgid "Password lenght:"
 msgstr ""
 
-#: main.py:186
+#: main.py:177
 msgid "Generate"
 msgstr ""
 
-#: main.py:200
+#: main.py:191
 msgid "Copy to clipboard"
 msgstr ""
 
-#: main.py:207
+#: main.py:198
 msgid "Save as .txt"
+msgstr ""
+
+#: main.py:207
+msgid "Reset"
 msgstr ""

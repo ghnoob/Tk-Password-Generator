@@ -12,6 +12,8 @@ import secrets
 import string
 from i18n import set_lang
 
+# globals
+
 class MainApplication:
     """Contains all widgets, their configs and their functionalities.
     
@@ -204,7 +206,7 @@ class MainApplication:
 
         # reset button
         ttk.Button(
-            self.master, text="Reset", command=self.reset).pack()
+            self.master, text=_("Reset"), command=self.reset).pack()
 
     # gui functionalities
     def check_password_lenght_value(self):
