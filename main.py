@@ -1,7 +1,7 @@
 """App that auto-generates password with the secrets module.
 
 Generated passwords can have 8-50 characters, and be composed of
-uppercase letters, lowercase letters, digits, and symbols
+uppercase letters, lowercase letters, digits, and symbols.
 """
 __author__ = "Rodrigo Pietnechuk"
 

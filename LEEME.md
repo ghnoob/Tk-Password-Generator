@@ -10,7 +10,7 @@ La longitud de la contraseña es configurable, pudiendo tener entre 1 y 50 carac
 ## Soporte multilenguage
 La aplicación soporta tanto inglés (por defecto) como español.
 
-Si el SO está configurado en español, la app utiliza los archivos de lenguaje de ese idioma. Si está configurado en otro idioma, utiliza los archivos del idioma inglés.
+Si el SO está configurado en español, la app utiliza los archivos de lenguaje de ese idioma. Si está configurado en otro idioma, utiliza el inglés como idioma por defecto.
 
 ## Copyright
 Este programa ha sido liberado al dominio público. Lee `LICENSE.MD` para más detalles.

@@ -10,7 +10,7 @@
 ## Multi-language support
 The app supports both English (default) and Spanish.  
 
-If the OS language is Spanish, the app uses the Spanish language files. Else, it uses the English ones.
+If the OS language is Spanish, the app uses the Spanish language files. Else, it uses the English as default language.
 
 ## License
  Released under public domain. See `LICENSE.MD` for details
