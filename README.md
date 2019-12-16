@@ -4,13 +4,11 @@
  This is my first project. Made it on windows. I didn't try it on Linux (yet).
 
 ## The passwords
- The random passwords are generated with the secrets module, and can be copied to the clipboard or saved as .txt files.  
+ The random passwords are generated with the python `secrets` module, and can be copied to the clipboard.  
  The passwords lenght can be 1-50 characters long. They can have uppercase and lowercase letters, digits, and symbols, depending on user choice.
 
-## Multi-language support
-The app supports both English (default) and Spanish.  
-
-If the OS language is Spanish, the app uses the Spanish language files. Else, it uses the English as default language.
+## Multi-language support (WIP)
+The app supports both English (default) and Spanish.
 
 ## License
  Released under public domain. See `LICENSE.MD` for details
