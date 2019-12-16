@@ -13,6 +13,10 @@ La aplicación soporta tanto inglés (por defecto) como español.
 ## Copyright
 Este programa ha sido liberado al dominio público. Lee `LICENSE.MD` para más detalles.
 
+### Íconos usados en la app
++ <a target="_blank" href="/icons/set/lock--v1">Lock icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="/icons/set/language">Language icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
 ## Información del autor
 **Rodrigo Pietnechuk**
 + **Email:** ptnchk.rodrigo@gmail.com

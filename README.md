@@ -13,7 +13,11 @@ The app supports both English (default) and Spanish.
 ## License
  Released under public domain. See `LICENSE.MD` for details
 
-### Author info
+### Icons used in this app
++ <a target="_blank" href="/icons/set/lock--v1">Lock icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
++ <a target="_blank" href="/icons/set/language">Language icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+## Author info
 **Rodrigo Pietnechuk**
 + **Email:** ptnchk.rodrigo@gmail.com
 + **URL:** https://github.com/ghnoob
