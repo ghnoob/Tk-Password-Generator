@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-12-14 17:06-0300\n"
+"POT-Creation-Date: 2019-12-16 00:42-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,42 +18,58 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: main.py\n"
 
-#: main.py:109
+#: main.py:122
 msgid "The password must contain:"
 msgstr ""
 
-#: main.py:114
+#: main.py:127
 msgid "Lowercase letters"
 msgstr ""
 
-#: main.py:118
+#: main.py:131
 msgid "Uppercase letters"
 msgstr ""
 
-#: main.py:122
+#: main.py:135
 msgid "Digits"
 msgstr ""
 
-#: main.py:126
+#: main.py:139
 msgid "Symbols"
 msgstr ""
 
-#: main.py:149
+#: main.py:162
 msgid "Password lenght:"
 msgstr ""
 
-#: main.py:177
+#: main.py:190
 msgid "Generate"
 msgstr ""
 
-#: main.py:191
+#: main.py:204
 msgid "Copy"
 msgstr ""
 
-#: main.py:198
-msgid "Save as .txt"
+#: main.py:214
+msgid "Reset"
 msgstr ""
 
-#: main.py:207
-msgid "Reset"
+#: main.py:352
+msgid "Language select"
+msgstr ""
+
+#: main.py:362
+msgid "Defined by the OS"
+msgstr ""
+
+#: main.py:366
+msgid "English"
+msgstr ""
+
+#: main.py:369
+msgid "Spanish"
+msgstr ""
+
+#: main.py:373
+msgid "Restart the app to see the changes."
 msgstr ""

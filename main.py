@@ -10,7 +10,7 @@ import tkinter.filedialog
 import tkinter.ttk as ttk
 import secrets
 import string
-from i18n import set_lang
+import i18n
 
 # globals
 
@@ -22,9 +22,7 @@ class MainApplication:
     """
     
     def __init__(self, master):
-        """Class initializator.
-        
-        Creates and configures the widgets.
+        """Creates and configures the widgets.
 
         Parameters:
             master (tkinter.Tk): the base widget of the app
@@ -59,7 +57,7 @@ class MainApplication:
         self.password = tk.StringVar()
         
         # calling methods
-        _ = set_lang() # set language
+        _ = i18n.load_cfg() # set language
         self.configure_widgets()
         self.create_widgets()
     
@@ -74,6 +72,7 @@ class MainApplication:
         s = ttk.Style()
         s.configure("TButton", font=("Consolas", 10))
         s.configure("TCheckbutton", font=("Consolas",10))
+        s.configure("TRadiobutton", font=("Consolas", 10))
 
     def create_widgets(self):
         """Calls methods that create different sections of the app."""
@@ -87,7 +86,10 @@ class MainApplication:
         """Creates the widgets of the top section of the app."""
         # language icon
         icon = tk.PhotoImage(file='./res/langicon.gif')
-        langbutton = ttk.Button(image=icon)
+        langbutton = ttk.Button(
+            self.master, image=icon,
+            command=lambda: SelectLanguageWindow(self.master)
+        )
         langbutton.image = icon
         # the image attribute is referenced twice to prevent the python
         # garbage collector from deleting the image
@@ -118,7 +120,7 @@ class MainApplication:
         
         # title label
         ttk.Label(checkbox_frame, text=_("The password must contain:"),
-                  font=("Consolas",12)).pack(anchor="w")
+                  font=("Consolas", 12)).pack(anchor="w")
 
         # checkbox
         ttk.Checkbutton(
@@ -324,7 +326,7 @@ class MainApplication:
         self.copybutton.state(["disabled"])
         self.genbutton.state(["!disabled"])
 
-class SelectLanguageWindow(tk.Toplevel):
+class SelectLanguageWindow:
     """Creates a toplevel window.
 
     It appears when the user clicks in the language icon.
@@ -338,15 +340,41 @@ class SelectLanguageWindow(tk.Toplevel):
         Also calls the methods that configure it and create its widgets.
         """
         self.master = master
-        self.top = super().__init__(self.master)
+        self.top = tk.Toplevel(self.master)
         self.configure_widgets()
         self.create_widgets()
+        # prevent the user to click outside the window
+        self.top.grab_set()
 
     def configure_widgets(self):
-        pass
+        """General configuration of the window."""
+        self.top.geometry("300x130")
+        self.top.title(_("Language select"))
+        self.top.resizable(False, False)
+        self.top.config(bd=10)
 
     def create_widgets(self):
-        pass
+        """Creates the widgets that go inside the window."""
+        lang = tk.StringVar()
+        cl = tk.StringVar()
+        # radiobuttons
+        ttk.Radiobutton(
+            self.top, text=_("Defined by the OS"), variable=lang,
+            value="os"
+        ).pack(anchor='w')
+        ttk.Radiobutton(
+            self.top, text=_("English"), variable=lang, value="en"
+        ).pack(anchor='w')
+        ttk.Radiobutton(
+            self.top, text=_("Spanish"), variable=lang, value="es"
+        ).pack(anchor='w')
+        ttk.Button(
+            self.top, text="OK", command=lambda:cl.set(
+                _("Restart the app to see the changes."),
+            )
+        ).pack()
+        ttk.Label(self.top, textvariable=cl, font=("Consolas", 10, "italic")
+                 ).pack()
 
 # loop
 if __name__ == "__main__":
