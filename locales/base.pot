@@ -47,7 +47,7 @@ msgid "Generate"
 msgstr ""
 
 #: main.py:191
-msgid "Copy to clipboard"
+msgid "Copy"
 msgstr ""
 
 #: main.py:198

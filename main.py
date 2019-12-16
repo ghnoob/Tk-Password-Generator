@@ -72,7 +72,7 @@ class MainApplication:
 
         # styling
         s = ttk.Style()
-        s.configure("TButton", font=("Consolas", 10), width=25, padding=1.5)
+        s.configure("TButton", font=("Consolas", 10))
         s.configure("TCheckbutton", font=("Consolas",10))
 
     def create_widgets(self):
@@ -195,20 +195,14 @@ class MainApplication:
         # generated passwords display
         ttk.Entry(lower_frame, width=52, font=("Consolas", 10),
                   state="readonly", cursor="", textvariable=self.password,
-                  justify="center").pack()
+                  justify="center").pack(side='left')
 
         # copy to clipboard button
         self.copybutton = ttk.Button(
-            lower_frame, text=_("Copy to clipboard"),
+            lower_frame, text=_("Copy"),
             state=["disabled"], command=self.copy_to_clipboard
             )
-        self.copybutton.pack(side="left")
-        
-        # save as .txt button
-        self.savebutton = ttk.Button(
-            lower_frame, text=_("Save as .txt"),
-            state=["disabled"], command=self.save_password)
-        self.savebutton.pack(side="left")
+        self.copybutton.pack(side='left')
          
          # blank label to add space
         ttk.Label(self.master, text=" ", font=("",5)).pack()
@@ -310,7 +304,6 @@ class MainApplication:
         self.password.set(password)
 
         # enable the copy and save password buttons
-        self.savebutton.state(["!disabled"])
         self.copybutton.state(["!disabled"])
 
     def copy_to_clipboard(self):
@@ -320,19 +313,6 @@ class MainApplication:
         self.master.clipboard_append(c)
         self.master.update()
 
-    def save_password(self):
-        """Saves the generated password in a .txt file."""
-        
-        file_ = tk.filedialog.asksaveasfile(
-            filetypes=( ("Text file", "*.txt"), ),
-            initialfile="password", defaultextension="*.txt"
-        )
-
-        # only saves of the uses doesn't press cancel
-        if file_ is not None:
-            file_.write(self.password.get())
-            file_.close()
-
     def reset(self):
         """Resets all the password options to their default values."""
         self.include_low.set(True)
@@ -341,7 +321,6 @@ class MainApplication:
         self.include_sym.set(True)
         self.password_lenght.set(8)
         self.password.set("")
-        self.savebutton.state(["disabled"])
         self.copybutton.state(["disabled"])
         self.genbutton.state(["!disabled"])
 
