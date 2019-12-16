@@ -85,6 +85,15 @@ class MainApplication:
 
     def create_upper_section(self):
         """Creates the widgets of the top section of the app."""
+        # language icon
+        icon = tk.PhotoImage(file='./res/langicon.gif')
+        langbutton = ttk.Button(image=icon)
+        langbutton.image = icon
+        # the image attribute is referenced twice to prevent the python
+        # garbage collector from deleting the image
+        langbutton.pack(anchor='ne')
+        
+        # title
         ttk.Label(self.master, text="Tk Password Generator",
         font=("Consolas", 24, "bold") ).pack()
 
@@ -335,6 +344,30 @@ class MainApplication:
         self.savebutton.state(["disabled"])
         self.copybutton.state(["disabled"])
         self.genbutton.state(["!disabled"])
+
+class SelectLanguageWindow(tk.Toplevel):
+    """Creates a toplevel window.
+
+    It appears when the user clicks in the language icon.
+
+    Parameters:
+        master (tkinter.Tk): the base wiget of the app
+    """
+    def __init__(self, master):
+        """Constructs the toplevel window in the widget MASTER.
+
+        Also calls the methods that configure it and create its widgets.
+        """
+        self.master = master
+        self.top = super().__init__(self.master)
+        self.configure_widgets()
+        self.create_widgets()
+
+    def configure_widgets(self):
+        pass
+
+    def create_widgets(self):
+        pass
 
 # loop
 if __name__ == "__main__":
