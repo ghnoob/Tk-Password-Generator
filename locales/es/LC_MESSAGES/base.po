@@ -71,6 +71,6 @@ msgstr "Inglés"
 msgid "Spanish"
 msgstr "Español"
 
-#: main.py:373
+#: main.py:377
 msgid "Restart the app to see the changes."
 msgstr "Reinicia la app para ver los cambios."

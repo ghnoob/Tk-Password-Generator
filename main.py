@@ -8,11 +8,10 @@ __author__ = "Rodrigo Pietnechuk"
 import tkinter as tk
 import tkinter.filedialog
 import tkinter.ttk as ttk
+import i18n
 import secrets
 import string
-import i18n
-
-# globals
+import configparser
 
 class MainApplication:
     """Contains all widgets, their configs and their functionalities.
@@ -57,12 +56,12 @@ class MainApplication:
         self.password = tk.StringVar()
         
         # calling methods
-        _ = i18n.load_cfg() # set language
+        _ = i18n.set_lang() # set language
         self.configure_widgets()
         self.create_widgets()
     
     def configure_widgets(self):
-        """Config of the root widgets and creation of ttk styles."""
+        """Config of the root widget and creation of ttk styles."""
         # root config
         self.master.title("Tk Password Generator")
         self.master.resizable(False, False)
@@ -355,8 +354,7 @@ class SelectLanguageWindow:
 
     def create_widgets(self):
         """Creates the widgets that go inside the window."""
-        lang = tk.StringVar()
-        cl = tk.StringVar()
+        lang = tk.StringVar(value=i18n.load_cfg())
         # radiobuttons
         ttk.Radiobutton(
             self.top, text=_("Defined by the OS"), variable=lang,
@@ -369,12 +367,13 @@ class SelectLanguageWindow:
             self.top, text=_("Spanish"), variable=lang, value="es"
         ).pack(anchor='w')
         ttk.Button(
-            self.top, text="OK", command=lambda:cl.set(
-                _("Restart the app to see the changes."),
-            )
+            self.top, text="OK", command=lambda:(i18n.save_cfg(lang.get()),
+            self.top.destroy())
         ).pack()
-        ttk.Label(self.top, textvariable=cl, font=("Consolas", 10, "italic")
-                 ).pack()
+        ttk.Label(
+            self.top, text=_("Restart the app to see the changes."),
+            font=("Consolas", 10, "italic")
+        ).pack()
 
 # loop
 if __name__ == "__main__":

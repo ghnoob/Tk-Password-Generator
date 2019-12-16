@@ -8,6 +8,12 @@ import gettext
 import configparser
 
 def load_cfg():
+    """Loads the language configuration."""
+    config = configparser.ConfigParser()
+    config.read('config.cfg')
+    return config.get('language', 'lang')
+    
+def set_lang():
     """Sets the app language based on config.cfg file.
 
     If the language is 'en' -> English.
@@ -15,11 +21,7 @@ def load_cfg():
     Else, the app is set to the OS default language (it uses English for
     languages other than Spanish.)
     """
-    config = configparser.ConfigParser()
-    config.read("config.cfg")
-    
-    l = config.get('language', 'lang')
-    
+    l = load_cfg()
     if l == 'en':
         lang = gettext.translation('base', fallback=True)
     elif l == 'es':
@@ -32,3 +34,12 @@ def load_cfg():
             lang = gettext.translation('base', fallback=True)
     
     return lang.gettext
+
+def save_cfg(val):
+    """Saves the current user configuration in the config.cfg file."""
+    config = configparser.ConfigParser()
+    config.read('config.cfg')
+    config.set('language', 'lang', val)
+
+    with open('config.cfg', 'w') as configfile:
+        config.write(configfile)
