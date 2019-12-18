@@ -8,7 +8,7 @@
  The passwords lenght can be 1-50 characters long. They can have uppercase and lowercase letters, digits, and symbols, depending on user choice.
 
 ## Multi-language support (WIP)
-The app supports both English (default) and Spanish.
+The app supports both English (default) and Spanish. By default, if the OS language is Spanish, the app will display its text in Spanish, or in English if the OS is in any other language. The user can force a language in the language options, clicking the translation icon in the upper right corner.
 
 ## License
  Released under public domain. See `LICENSE.MD` for details
