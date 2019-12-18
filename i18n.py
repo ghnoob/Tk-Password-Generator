@@ -59,4 +59,4 @@ def save_cfg(val):
         config.write(configfile)
 
     # restart the app
-    os.execl(sys.executable, 'python', __file__, *sys.argv[1:])
+    os.execv(sys.executable, ['python'] + sys.argv)

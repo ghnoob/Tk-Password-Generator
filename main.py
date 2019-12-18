@@ -9,6 +9,7 @@ import tkinter as tk
 import tkinter.filedialog
 import tkinter.ttk as ttk
 import i18n
+import sys
 import secrets
 import string
 import configparser
@@ -66,6 +67,16 @@ class MainApplication:
         self.master.title("Tk Password Generator")
         self.master.resizable(False, False)
         self.master.config(bd=20)
+        self.configure_icon(self.master)
+
+    def configure_icon(self, widget):
+        """Sets the app icon, depending on the OS."""
+        if sys.platform.startswith('win'):
+            widget.iconbitmap('./res/lockicon.ico')
+        elif sys.platform.startswith('linux'):
+            widget.iconbitmap('./res/lockicon.png')
+        elif sys.platform.startswith('darwin'):
+            widget.iconbitmap('./res/lockicon.icns')
 
         # styling
         s = ttk.Style()
@@ -351,6 +362,7 @@ class SelectLanguageWindow:
         self.top.title(_("Language select"))
         self.top.resizable(False, False)
         self.top.config(bd=10)
+        MainApplication.configure_icon(self, self.top)
 
     def create_widgets(self):
         """Creates the widgets that go inside the window."""
