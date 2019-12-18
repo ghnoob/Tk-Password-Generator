@@ -371,7 +371,7 @@ class SelectLanguageWindow:
             self.top.destroy())
         ).pack()
         ttk.Label(
-            self.top, text=_("Restart the app to see the changes."),
+            self.top, text=_("The app will restart automatically."),
             font=("Consolas", 10, "italic")
         ).pack()
 

@@ -70,6 +70,6 @@ msgstr ""
 msgid "Spanish"
 msgstr ""
 
-#: main.py:373
-msgid "Restart the app to see the changes."
+#: main.py:374
+msgid "The app will restart automatically."
 msgstr ""

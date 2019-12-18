@@ -6,6 +6,7 @@ Currently it supports English and Spanish.
 import locale
 import gettext
 import configparser
+import sys, os
 
 def load_cfg():
     """Loads the language configuration from config.cfg file.
@@ -56,3 +57,6 @@ def save_cfg(val):
 
     with open('config.cfg', 'w') as configfile:
         config.write(configfile)
+
+    # restart the app
+    os.execl(sys.executable, 'python', __file__, *sys.argv[1:])
