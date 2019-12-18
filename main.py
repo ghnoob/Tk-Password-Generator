@@ -345,7 +345,7 @@ class SelectLanguageWindow:
         master (tkinter.Tk): the base wiget of the app
     """
     def __init__(self, master):
-        """Constructs the toplevel window in the widget MASTER.
+        """Constructs a toplevel window in the widget MASTER.
 
         Also calls the methods that configure it and create its widgets.
         """
@@ -358,7 +358,6 @@ class SelectLanguageWindow:
 
     def configure_widgets(self):
         """General configuration of the window."""
-        self.top.geometry("300x130")
         self.top.title(_("Language select"))
         self.top.resizable(False, False)
         self.top.config(bd=10)
