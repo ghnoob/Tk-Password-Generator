@@ -40,8 +40,8 @@ def set_lang():
         lang = gettext.translation('base', localedir='locales',
                languages=['es'])
     else:
-        loc = locale.getlocale()
-        if loc[0].startswith( ('Spanish', 'es') ):
+        locale.setlocale(locale.LC_ALL, '')
+        if locale.getlocale()[0].startswith( ('Spanish', 'es') ):
             lang = gettext.translation('base', localedir='locales',
                    languages=['es'])
         else:
