@@ -14,8 +14,7 @@ The app supports both English (default) and Spanish. By default, if the OS langu
  Released under public domain. See `LICENSE.MD` for details
 
 ### Icons used in this app
-+ <a target="_blank" href="/icons/set/lock--v1">Lock icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-+ <a target="_blank" href="/icons/set/language">Language icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+The lock and translation icons used in this app were obtained from https://icons8.com
 
 ## Author info
 **Rodrigo Pietnechuk**

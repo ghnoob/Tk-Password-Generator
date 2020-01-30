@@ -14,8 +14,7 @@ La aplicación soporta tanto inglés (por defecto) como español. Por defecto, s
 Este programa ha sido liberado al dominio público. Lee `LICENSE.MD` para más detalles.
 
 ### Íconos usados en la app
-+ <a target="_blank" href="/icons/set/lock--v1">Lock icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-+ <a target="_blank" href="/icons/set/language">Language icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+Los iconos de candado y de traducción usados en esta app fueron obtenidos de https://icons8.com
 
 ## Información del autor
 **Rodrigo Pietnechuk**
