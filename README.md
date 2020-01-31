@@ -18,7 +18,7 @@ The app supports both English and Spanish. By default, the app will display its 
 ![Using the app in Spanish](res/screen4.png)
 
 ## License
- Released under GNU GPL. See `LICENSE.MD` for details
+Released under public domain. See `LICENSE.MD` for details
 
 ### Icons used in this app
 The lock and translation icons used in this app were obtained from [icons8](https://icons8.com).

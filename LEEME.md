@@ -18,7 +18,7 @@ La aplicación soporta tanto inglés como español. Por defecto, la aplicación 
 ![Usando la app en español](res/screen4.png)
 
 ## Copyright
-Este programa ha sido liberado bajo la GNU GPL. Lee `LICENSE.MD` para más detalles.
+Este programa ha sido liberado al dominio público. Lee `LICENSE.MD` para más detalles.
 
 ### Íconos usados en la app
 Los iconos de candado y de traducción usados en esta app fueron obtenidos de [icons8](https://icons8.com).
