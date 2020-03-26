@@ -8,11 +8,14 @@ __author__ = "Rodrigo Pietnechuk"
 import tkinter as tk
 import tkinter.filedialog
 import tkinter.ttk as ttk
-import i18n
-import sys
+import tkinter.messagebox as msgbox
 import secrets
 import string
 import configparser
+
+import i18n
+import password_management as pwm
+import sys
 
 class MainApplication:
     """Contains all widgets, their configs and their functionalities.
@@ -77,10 +80,10 @@ class MainApplication:
             widget.iconbitmap('./res/lockicon.png')
         elif sys.platform.startswith('darwin'):
             widget.iconbitmap('./res/lockicon.icns')
-
         # styling
         s = ttk.Style()
         s.configure("TButton", font=("Consolas", 10))
+        s.configure("TLabel", font=("Consolas", 10))
         s.configure("TCheckbutton", font=("Consolas",10))
         s.configure("TRadiobutton", font=("Consolas", 10))
 
@@ -96,14 +99,24 @@ class MainApplication:
         """Creates the widgets of the top section of the app."""
         # language icon
         icon = tk.PhotoImage(file='./res/langicon.gif')
+        
+        # frame to pack the widgets
+        upper_frame = ttk.Frame(self.master)
+        upper_frame.pack()
+
+        ttk.Button(
+            upper_frame, text="Password manager",
+            command=lambda:pwm.PasswordManager(self.master)
+        ).pack(side="left", padx=(0,150))
+        
         langbutton = ttk.Button(
-            self.master, image=icon,
+            upper_frame, image=icon,
             command=lambda: SelectLanguageWindow(self.master)
         )
         langbutton.image = icon
         # the image attribute is referenced twice to prevent the python
         # garbage collector from deleting the image
-        langbutton.pack(anchor='ne')
+        langbutton.pack(side="right", padx=(150,0))
         
         # title
         ttk.Label(self.master, text="Tk Password Generator",
@@ -386,8 +399,61 @@ class SelectLanguageWindow:
             font=("Consolas", 10, "italic")
         ).pack()
 
+class PMWindow:
+    """Toplevel window for the password management system."""
+    def __init__(self, master):
+        self.master = master
+        
+        self.top = tk.Toplevel(self.master)
+        self.configure_widgets()
+        
+    def configure_widgets(self):
+        self.top.config(bd=15)
+        self.top.resizable(False, False)
+        self.top.grab_set()
+        MainApplication.configure_icon(self, self.top)
+
+    def add_password_window(self, mp=False):
+        
+        entries = ttk.Frame(self.top)
+        entries.pack()
+
+        if mp == True:
+            self.top.title("Set master password")
+            msgbox.showwarning("Set master password",
+            """\
+To use the password manager, first you need to set a master password.
+            
+A master password is a password that is used to access to the others.
+
+Set a master password easy for you to remember but difficult for someone else.
+""")
+            service = "master"
+            user = "master"
+        
+        else:
+            ttk.Label(entries, text="Service").grid(row=0, column=0, pady=3, sticky="w")
+            service = ttk.Entry(entries).grid(row=0, column=1)
+        
+            ttk.Label(entries, text="User").grid(row=1, column=0, pady=3, sticky="w")
+            user = ttk.Entry(entries).grid(row=1, column=1)
+        
+        ttk.Label(entries, text="Password").grid(row=2, column=0, sticky="w")
+        ttk.Entry(entries, show="*", exportselection=False).grid(row=2, column=1)
+        
+        ttk.Label(entries, text="Repeat password").grid(row=3, column=0, pady=3, sticky="w")
+        ttk.Entry(entries, show="*", exportselection=False).grid(row=3, column=1)
+        
+        ttk.Label(self.top).pack() # to add space
+        
+        yesorno = ttk.Frame(self.top)
+        yesorno.pack()
+        ttk.Button(yesorno, text="Confirm").grid(row=0, column=0)
+        ttk.Button(yesorno, text="Cancel", command=self.top.destroy).grid(row=0, column=1)
+
 # loop
 if __name__ == "__main__":
     root = tk.Tk()
     main_app = MainApplication(root)
     root.mainloop()
+    
