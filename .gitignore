@@ -1,5 +1,5 @@
 
 config.cfg
 __pycache__/
-.vscode/settings.json
+.vscode/
 passwords.db

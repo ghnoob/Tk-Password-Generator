@@ -104,10 +104,9 @@ class MainApplication:
         upper_frame = ttk.Frame(self.master)
         upper_frame.pack()
 
-        ttk.Button(
-            upper_frame, text="Password manager",
-            command=lambda:pwm.PasswordManager(self.master)
-        ).pack(side="left", padx=(0,150))
+        ttk.Button(upper_frame, text="Password manager",
+                   command=lambda: PMWindow(self.master).view_passwords_window()
+                  ).pack(side="left", padx=(0,150))
         
         langbutton = ttk.Button(
             upper_frame, image=icon,
@@ -405,6 +404,7 @@ class PMWindow:
         self.master = master
         
         self.top = tk.Toplevel(self.master)
+
         self.configure_widgets()
         
     def configure_widgets(self):
@@ -413,6 +413,9 @@ class PMWindow:
         self.top.grab_set()
         MainApplication.configure_icon(self, self.top)
 
+    def view_passwords_window(self):
+        pwm.SQLPwManaging(self.master).check_for_master_pw()
+    
     def add_password_window(self, mp=False):
         
         entries = ttk.Frame(self.top)
@@ -428,28 +431,50 @@ A master password is a password that is used to access to the others.
 
 Set a master password easy for you to remember but difficult for someone else.
 """)
-            service = "master"
-            user = "master"
+            self.service = tk.StringVar(value="master")
+            self.user = tk.StringVar(value="master")
         
         else:
             ttk.Label(entries, text="Service").grid(row=0, column=0, pady=3, sticky="w")
-            service = ttk.Entry(entries).grid(row=0, column=1)
+            self.service = ttk.Entry(entries).grid(row=0, column=1)
         
             ttk.Label(entries, text="User").grid(row=1, column=0, pady=3, sticky="w")
-            user = ttk.Entry(entries).grid(row=1, column=1)
+            self.user = ttk.Entry(entries).grid(row=1, column=1)
         
         ttk.Label(entries, text="Password").grid(row=2, column=0, sticky="w")
-        ttk.Entry(entries, show="*", exportselection=False).grid(row=2, column=1)
+        self.pw = ttk.Entry(entries, show="*", exportselection=False)
+        self.pw.grid(row=2, column=1)
         
         ttk.Label(entries, text="Repeat password").grid(row=3, column=0, pady=3, sticky="w")
-        ttk.Entry(entries, show="*", exportselection=False).grid(row=3, column=1)
+        self.repeat_pw = ttk.Entry(entries, show="*", exportselection=False)
+        self.repeat_pw.grid(row=3, column=1)
         
         ttk.Label(self.top).pack() # to add space
         
         yesorno = ttk.Frame(self.top)
         yesorno.pack()
-        ttk.Button(yesorno, text="Confirm").grid(row=0, column=0)
-        ttk.Button(yesorno, text="Cancel", command=self.top.destroy).grid(row=0, column=1)
+        
+        ttk.Button(yesorno, text="Confirm", command= self.check_for_equal_passwords
+                  ).grid(row=0, column=0)
+        
+        ttk.Button(yesorno, text="Cancel", command=self.top.destroy
+                  ).grid(row=0, column=1)
+
+    def check_for_equal_passwords(self):
+        if self.pw.get() == self.repeat_pw.get():
+            if self.pw.get() == "":
+                msgbox.showerror("Error", "Master password can't be empty.")
+            else:
+                pwm.SQLPwManaging(self.master).add_password_to_db(
+                    service = self.service.get(),
+                    password = self.pw.get(),
+                    user =  self.user.get()
+                )
+                msgbox.showinfo("Password added", "Password added succesfully to the database!")
+                self.top.destroy()
+        else:
+            msgbox.showerror("Error", "Passwords do not coincide.")
+            return False
 
 # loop
 if __name__ == "__main__":
